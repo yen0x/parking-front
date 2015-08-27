@@ -11,7 +11,7 @@ app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: './components/home/homeView.html',
+                templateUrl: '/app/components/home/homeView.html',
                 controller: 'HomeCtrl'
             });
     }]);
