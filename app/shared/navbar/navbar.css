@@ -1,0 +1,63 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|Roboto+Slab:400,100,300,700);
+
+body {
+    min-height: 2000px;
+}
+
+.navbar-brand {
+    font-family: "Roboto Slab", Open Sans;
+}
+
+.navbar-default {
+    background-color: #3397B2;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-nav>.active>a {
+    color: #FFFFFF;
+    background-color: #246B80;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #FFFFFF;
+    background-color: #246B80;
+}
+
+.navbar-default .navbar-nav>.active>a:hover {
+    color: #FFFFFF;
+    background-color: #246B80;
+}
+
+.main-logo {
+    width: 320px;
+    height: 71px;
+    margin-top: 22px;
+    text-indent: 120%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url('../img/logo.png') no-repeat;
+    background-size: 100%;
+}
+
+/* bootstrap 3 helpers */
+
+nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
+
+#sidebar.affix-top {
+    position: static;
+}
+
+#sidebar.affix {
+    position: fixed;
+    top: 80px;
+}
