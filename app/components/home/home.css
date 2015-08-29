@@ -1,0 +1,11 @@
+#homeSearch {
+    background-color: dimgray;
+    height: 280px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+#marketing-home-text {
+    text-align: justify;
+    color: white;
+}

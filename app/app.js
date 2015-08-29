@@ -1,4 +1,4 @@
-var app = angular.module('parking', ['parking.controllers', 'ui.router']);
+var app = angular.module('parking', ['parking.controllers', 'ui.router', 'ui.bootstrap']);
 angular.module('parking.controllers', [])
 
 app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {

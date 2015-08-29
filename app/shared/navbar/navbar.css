@@ -4,6 +4,10 @@ body {
     min-height: 2000px;
 }
 
+nav {
+    background-color: dimgray;
+}
+
 .navbar-brand {
     font-family: "Roboto Slab", Open Sans;
 }
