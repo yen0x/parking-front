@@ -14,15 +14,18 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
 
     <script type="text/javascript" src="app/app.js"></script>
+
     <script type="text/javascript" src="app/components/home/homeController.js"></script>
+    <script type="text/javascript" src="app/components/signup/signup.js"></script>
+
     <link rel="stylesheet" href="app/shared/navbar/navbar.css">
     <link rel="stylesheet" href="app/components/home/home.css">
 
 </head>
 <body ng-app="parking">
-<ng-include src="'./app/shared/navbar/navbar.html'"></ng-include>
-<div id="main">
-    <div ui-view></div>
-</div>
+  <ng-include src="'./app/shared/navbar/navbar.html'"></ng-include>
+  <div id="main">
+      <div ui-view></div>
+  </div>
 </body>
 </html>
