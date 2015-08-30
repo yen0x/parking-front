@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="app/components/signup/signup.css">
+<link rel="stylesheet" href="/app/components/signup/signup.css">
 <div>
   <form novalidate class="form form-group" method="post">
     <h1>Sign up</h1>
@@ -6,15 +6,17 @@
       <span>Firstname</span>
       <div class="input-group">
         <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-        <input class="form-control" type="text" name="firstname" placeholder="Bob" ng-model="infos.firstname" />
+        <input class="form-control" type="text" name="firstname" placeholder="Bob" ng-model="infos.firstname" ng-blur="checkFirstname()" />
       </div>
+      <span class="error" ng-if="showErrors.firstname.length > 0">{{showErrors.firstname}}</span>
     </label>
     <label>
       <span>Email</span>
       <div class="input-group">
         <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
-        <input type="text" class="form-control" id="email" placeholder="bobsaget@example.com" ng-model="infos.email" />
+        <input type="email" class="form-control" id="email" placeholder="bobsaget@example.com" ng-model="infos.email" ng-blur="checkEmail()" />
       </div>
+      <span class="error" ng-if="showErrors.email.length > 0">{{showErrors.email}}</span>
     </label>
     <label>
       <span>Password</span>
@@ -22,9 +24,10 @@
         <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
         <input type="password" class="form-control" id="password" ng-model="infos.password" ng-blur="checkPassword()">
       </div>
-      <span class="has-error" ng-if="showErrors.password.length > 0">{{showErrors.password}}</span>
+      <span class="error" ng-if="showErrors.password.length > 0">{{showErrors.password}}</span>
     </label>
 
+    <span class="error" ng-if="showErrors.general.length > 0">{{showErrors.general}}</span>
     <input class="form-control" type="submit" value="Sign up!" ng-click="submit()"></input>
   </form>
 </div>
