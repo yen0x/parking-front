@@ -1,4 +1,4 @@
-<div id="homeSearch">
+<div id="homeSearch" ng-controller="HomeCtrl">
     <div class="col-md-8">
         <h3>Trouvez une place pour vous garer, partout où vous en avez besoin</h3>
 
@@ -25,13 +25,13 @@
         <!-- end slipsum code -->
     </div>
     <div class="col-md-4">
-        <form>
+        <form ng-submit="onParkingSearchSubmit()" name="parkingSearchForm">
             <div class="form-group">
                 <label for="searchInput">Cherchez un emplacement : </label>
-                <input type="text" id="searchInput" class="form-control"
-                       placeholder="Aéroport Charles De Gaulle, Gare Lyon Part-Dieu, Stade de France, ...">
+                <input type="text" id="searchInput" class="form-control" ng-model="search.adresse"
+                       placeholder="Aéroport Charles De Gaulle, Gare Lyon Part-Dieu, 75010, ...">
             </div>
-            <button type="submit" class="btn default-btn">Trouvez !</button>
+            <input type="submit" class="btn default-btn" value="Trouvez !"/>
         </form>
     </div>
 </div>

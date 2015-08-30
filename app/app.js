@@ -31,6 +31,14 @@ app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $
               }
             )
             .state(
+              'parkingsearch',
+              {
+                url: '/parkingsearch',
+                templateUrl: '/app/components/parkingsearch/search.html',
+                controller: 'SearchCtrl'
+              }
+            )
+            .state(
               'signup',
               {
                 url: '/signup',
