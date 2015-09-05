@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/app/components/addparking/addparking.css">
+<div ng-controller="AddPrkgCtrl">
+    <form ng-submit="submit()">
+        <div class="form-group">
+            <label for="address">Adresse</label>
+            <input type="text" class="form-control" id="address" placeholder="115 cours vitton, 69100 Villeurbanne"
+                   ng-model="parking.address">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" ng-model="parking.description"
+                      placeholder="Présentez votre parking, les horaires auxquels les usagers peuvent s'y garer, les informations d'accès ou tout autre détail."></textarea>
+
+        </div>
+        <div class="form-group">
+            <label for="price">Prix</label>
+            <input type="text" class="form-control" id="price" placeholder="0.00" ng-model="parking.price">&nbsp;€
+        </div>
+        <!--div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+
+            <p class="help-block">Example block-level help text here.</p>
+        </div-->
+
+        <button type="submit" class="btn btn-default">Enregistrez !</button>
+    </form>
+</div>
