@@ -9,7 +9,7 @@ app.controller('AddPrkgCtrl', ['$scope', '$http', function ($scope,  $http) {
             $scope.parking
             )
             .then(function(response) {
-                alert('Praking ajouté.');
+                alert('Parking ajouté.');
             }, function(response) {
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
