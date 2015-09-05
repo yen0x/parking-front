@@ -31,6 +31,14 @@ app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $
               }
             )
             .state(
+              'addparking',
+              {
+                url: '/addparking',
+                templateUrl: '/app/components/addparking/addparking.html',
+                controller: 'AddPrkgCtrl'
+              }
+            )
+            .state(
               'parkingsearch',
               {
                 url: '/parkingsearch',
