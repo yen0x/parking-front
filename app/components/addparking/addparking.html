@@ -3,8 +3,18 @@
     <form ng-submit="submit()">
         <div class="form-group">
             <label for="address">Adresse</label>
-            <input type="text" class="form-control" id="address" placeholder="115 cours vitton, 69100 Villeurbanne"
+            <input type="text" class="form-control" id="address" placeholder="115 cours vitton"
                    ng-model="parking.address">
+        </div>
+        <div class="form-group">
+            <label for="zip">Code Postal</label>
+            <input type="text" class="form-control" id="zip" placeholder="69100"
+                   ng-model="parking.zip">
+        </div>
+        <div class="form-group">
+            <label for="city">Ville</label>
+            <input type="text" class="form-control" id="city" placeholder="Villeurbanne"
+                   ng-model="parking.city">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
@@ -14,14 +24,12 @@
         </div>
         <div class="form-group">
             <label for="price">Prix</label>
-            <input type="text" class="form-control" id="price" placeholder="0.00" ng-model="parking.price">&nbsp;€
-        </div>
-        <!--div class="form-group">
-            <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile">
 
-            <p class="help-block">Example block-level help text here.</p>
-        </div-->
+            <div class="input-group col-md-2">
+                <input type="number" step="any" class="form-control" id="price" placeholder="0.00" ng-model="parking.price">
+                <span class="input-group-addon">€</span>
+            </div>
+        </div>
 
         <button type="submit" class="btn btn-default">Enregistrez !</button>
     </form>
