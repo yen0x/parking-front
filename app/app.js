@@ -6,7 +6,9 @@ var app = angular.module(
     [
       'ui.router',
       'ui.bootstrap',
-      'parking.controllers'
+      'parking.controllers',
+      'nemLogging',
+      'leaflet-directive'
     ]
 );
 

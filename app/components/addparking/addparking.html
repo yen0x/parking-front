@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/app/components/addparking/addparking.css">
+
 <div ng-controller="AddPrkgCtrl">
     <form ng-submit="submit()">
         <div class="form-group">
@@ -26,9 +27,13 @@
             <label for="price">Prix</label>
 
             <div class="input-group col-md-2">
-                <input type="number" step="any" class="form-control" id="price" placeholder="0.00" ng-model="parking.price">
+                <input type="number" step="any" class="form-control" id="price" placeholder="0.00"
+                       ng-model="parking.price">
                 <span class="input-group-addon">€</span>
             </div>
+        </div>
+        <div id="map">
+            <leaflet center="center" event-broadcast="events" markers="markers" height="200px" width="600px"></leaflet>
         </div>
 
         <button type="submit" class="btn btn-default">Enregistrez !</button>
