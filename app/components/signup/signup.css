@@ -4,6 +4,18 @@ span {
 label {
   display: block;
 }
+.submit {
+  margin-top: 1.5em;
+}
 .error {
   color: red;
+}
+.terms {
+  text-align: center;
+  margin-top: 0.4em;
+  font-size: 0.9em;
+}
+.signup-side-panel {
+  margin-top: 5em;
+  padding: 2em;
 }
