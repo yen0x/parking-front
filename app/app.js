@@ -37,5 +37,13 @@ app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $
                 templateUrl: '/app/components/signup/signup.html',
                 controller: 'SignupController'
               }
+            )
+            .state(
+              'dashboard',
+              {
+                url: '/dashboard',
+                templateUrl: '/app/components/dashboard/dashboard.html',
+                controller: 'DashboardController'
+              }
             );
     }]);
