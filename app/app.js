@@ -6,7 +6,9 @@ var app = angular.module(
     [
       'ui.router',
       'ui.bootstrap',
-      'parking.controllers'
+      'parking.controllers',
+      'nemLogging',
+      'leaflet-directive'
     ]
 );
 
@@ -28,6 +30,22 @@ app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $
                 url: '/',
                 templateUrl: '/app/components/home/homeView.html',
                 controller: 'HomeCtrl'
+              }
+            )
+            .state(
+              'addparking',
+              {
+                url: '/addparking',
+                templateUrl: '/app/components/addparking/addparking.html',
+                controller: 'AddPrkgCtrl'
+              }
+            )
+            .state(
+              'parkingsearch',
+              {
+                url: '/parkingsearch',
+                templateUrl: '/app/components/parkingsearch/search.html',
+                controller: 'SearchCtrl'
               }
             )
             .state(
