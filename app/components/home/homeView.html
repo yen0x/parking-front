@@ -1,12 +1,12 @@
-<div class="home-cover">
+<div class="home-cover" ng-controller="HomeCtrl">
     <div class="col-md-3 col-md-offset-1">
-        <form>
+        <form  ng-submit="onParkingSearchSubmit()" name="parkingSearchForm">
             <div class="form-group">
                 <label for="searchInput">Cherchez un emplacement : </label>
-                <input type="text" id="searchInput" class="form-control"
-                       placeholder="Aéroport Charles De Gaulle, Gare Lyon Part-Dieu, Stade de France, ...">
+                <input type="text" id="searchInput" class="form-control" ng-model="search.address"
+                       placeholder="Aéroport Charles De Gaulle, Gare Lyon Part-Dieu, 75010, ...">
             </div>
-            <button type="submit" class="btn default-btn">Trouver</button>
+            <input type="submit" class="btn default-btn" value="Trouver" />
         </form>
     </div>
     <div class="col-md-5 col-md-offset-1">
