@@ -2,6 +2,7 @@ var app = angular.module('parking.controllers');
 
 app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
     angular.extend($scope, {
+        bounds: {},
         center: {
             lat: 48.50,
             lng: 2.20,
@@ -50,9 +51,21 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
         return;
       }
 
-      var point = result.data.features[0].center;
-      $scope.center.lng = point[0];
-      $scope.center.lat = point[1];      
+      console.log(result);
+      var bbox = result.data.features[0].bbox;
+      var northEast = {
+        lat: bbox[3],
+        lng: bbox[2]
+      }
+      var southWest = {
+        lat: bbox[1],
+        lng: bbox[0]
+      }
+
+      $scope.bounds = {
+        northEast: northEast,
+        southWest: southWest
+      }
     }
 
     $scope.launchSearch();
