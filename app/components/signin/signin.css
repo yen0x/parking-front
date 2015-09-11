@@ -1,0 +1,12 @@
+span {
+  display: block;
+}
+label {
+  display: block;
+}
+.submit {
+  margin-top: 1.5em;
+}
+.error {
+  color: red;
+}

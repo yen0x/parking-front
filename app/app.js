@@ -39,6 +39,14 @@ app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $
               }
             )
             .state(
+              'signin',
+              {
+                url: '/signin',
+                templateUrl: '/app/components/signin/signin.html',
+                controller: 'SigninController'
+              }
+            )
+            .state(
               'dashboard',
               {
                 url: '/dashboard',

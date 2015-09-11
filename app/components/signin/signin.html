@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/app/components/signin/signin.css">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <form novalidate class="form form-group" method="post">
+        <h1>Sign in</h1>
+        <label>
+          <span>Email</span>
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+            <input type="email" class="form-control" id="email" placeholder="bobsaget@example.com" ng-model="form.email" ng-blur="checkEmail()" />
+          </div>
+          <span class="error" ng-if="showErrors.email.length > 0">{{showErrors.email}}</span>
+        </label>
+        <label>
+          <span>Password</span>
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+            <input type="password" class="form-control" id="password" ng-model="form.password">
+          </div>
+          <span class="error" ng-if="showErrors.password.length > 0">{{showErrors.password}}</span>
+        </label>
+
+        <span class="error" ng-if="showErrors.general.length > 0">{{showErrors.general}}</span>
+
+        <input class="form-control submit" type="submit" value="Sign in" ng-click="submit()"></input>
+      </form>
+    </div>
+  </div>
+</div>
+
