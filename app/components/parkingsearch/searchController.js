@@ -88,7 +88,6 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
       $http.get(url)
           .then(function(response) {
             $scope.parkings = response.data;
-
             $scope.createMarkers($scope.parkings);
           },
           function(response) {
@@ -111,8 +110,6 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
           draggable: false
         }
       }
-
-      console.log($scope.markers);
     };
 
     $scope.moveMap = function(selection) {
