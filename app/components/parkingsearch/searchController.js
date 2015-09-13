@@ -1,14 +1,15 @@
 var app = angular.module('parking.controllers');
 
 app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
-    angular.extend($scope, {
-        bounds: {},
-        center: {
-            lat: 48.50,
-            lng: 2.20,
-            zoom: 7
-        }
-    });
+    // center on Paris on startup.
+    $scope.center = {
+        lat: 48.50,
+        lng: 2.20,
+        zoom: 7
+    }
+
+    // no marker on startup
+    $scope.markers = {};
 
     $scope.form = {
       address: $stateParams.query
@@ -70,6 +71,8 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
     };
 
     $scope.selectAddress = function(selection) {
+      $scope.markers = {};
+
       $scope.moveMap(selection);
       $scope.searchParking(selection);
     };
@@ -85,10 +88,31 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
       $http.get(url)
           .then(function(response) {
             $scope.parkings = response.data;
+
+            $scope.createMarkers($scope.parkings);
           },
           function(response) {
             alert('Error while querying the backend.');
           });
+    };
+
+    $scope.createMarkers = function(parkings) {
+      if (!parkings) {
+        return;
+      }
+
+      $scope.markers = {};
+
+      for (var i = 0; i < parkings.length; i++) {
+        var parking = parkings[i];
+        $scope.markers[i] = {
+          lat: parking.latitude,
+          lng: parking.longitude,
+          draggable: false
+        }
+      }
+
+      console.log($scope.markers);
     };
 
     $scope.moveMap = function(selection) {
