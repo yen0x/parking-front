@@ -10,8 +10,24 @@
     </form>
   </div>
   <div class="row">
-    <div class="map">
-      <leaflet id="map" bounds="bounds" center="center" event-broadcast="events" height="400px" width="100%"></leaflet>
+    <div class="col-md-8">
+      <div class="map">
+        <leaflet id="map" bounds="bounds" center="center" event-broadcast="events" height="400px" width="100%"></leaflet>
+      </div>
     </div>
+    <div class="col-md-4">
+      <ul class="address-entries list-unstyled">
+        <li ng-repeat="(key, value) in results" ng-click="selectAddress(key)" class="address-entry" ng-class="{active: key === selected}"><span><strong>{{value.title}}</strong><br>{{value.description}}</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <h3 ng-if="parkings.length === 0">Aucun parking dans cette zone de recherche</h3>
+    <ul class="parking-entries list-unstyled">
+      <li ng-repeat="(key, value) in parkings" class="parking-entry">
+        <h3> {{value.address}}</h3>
+        </span>{{value.description}}</span> <strong>{{value.price}}</strong>
+      </li>
+    </ul>
   </div>
 </div>

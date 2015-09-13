@@ -2,3 +2,16 @@
   border: 1px solid #ccc;
   margin-top: 1.5em;
 }
+
+.address-entries {
+  margin-top: 1.5em;
+}
+
+.address-entry {
+  cursor: pointer;
+  padding: 1em;
+}
+
+.active {
+  background-color: #eee;
+}
