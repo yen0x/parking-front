@@ -8,6 +8,14 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
         zoom: 7
     }
 
+    // leaflet events.
+    $scope.events = {
+        map: {
+            enable: ['zoomend', 'dragend' ],
+            logic: 'emit'
+        }
+    };
+
     // no marker on startup
     $scope.markers = {};
 
@@ -78,13 +86,12 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
     };
 
     $scope.searchParking = function(selection) {
-      var center = $scope.results[selection].center;
+      var bounds = $scope.bounds;
 
-      if (!center) {
-        return;
-      }
+      var url = '/api/parking/search/area/' +
+                bounds.northEast.lat + ',' + bounds.northEast.lng + '/' +
+                bounds.southWest.lat + ',' + bounds.southWest.lng;
 
-      var url = '/api/parking/search/area/' + center[1] + ',' + center[0];
       $http.get(url)
           .then(function(response) {
             $scope.parkings = response.data;
@@ -135,6 +142,23 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
 
       $scope.selected = selection;
     };
+
+    $scope.onZoomEnd = function(event) {
+      setTimeout(function() {
+        $scope.searchParking()
+      }, 50);
+    };
+
+    $scope.onDragEnd = function(event) {
+      setTimeout(function() {
+        $scope.searchParking()
+      }, 50);
+    };
+
+    // notify on some map events
+
+    $scope.$on('leafletDirectiveMap.zoomend', function(event) { $scope.onZoomEnd(event) });
+    $scope.$on('leafletDirectiveMap.dragend', function(event) { $scope.onDragEnd(event) });
 
     $scope.launchSearch();
 }]);
