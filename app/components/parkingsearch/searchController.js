@@ -11,7 +11,7 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
     // leaflet events.
     $scope.events = {
         map: {
-            enable: ['zoomend', 'dragend' ],
+            enable: ['zoomend', 'moveend' ],
             logic: 'emit'
         }
     };
@@ -149,7 +149,7 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
       }, 50);
     };
 
-    $scope.onDragEnd = function(event) {
+    $scope.onMoveEnd = function(event) {
       setTimeout(function() {
         $scope.searchParking()
       }, 50);
@@ -158,7 +158,7 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
     // notify on some map events
 
     $scope.$on('leafletDirectiveMap.zoomend', function(event) { $scope.onZoomEnd(event) });
-    $scope.$on('leafletDirectiveMap.dragend', function(event) { $scope.onDragEnd(event) });
+    $scope.$on('leafletDirectiveMap.moveend', function(event) { $scope.onMoveEnd(event) });
 
     $scope.launchSearch();
 }]);
