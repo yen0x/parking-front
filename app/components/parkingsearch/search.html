@@ -26,7 +26,10 @@
     <ul class="parking-entries list-unstyled">
       <li ng-repeat="(key, value) in parkings" class="parking-entry">
         <h3> {{value.address}}</h3>
-        </span>{{value.description}}</span><br><strong>{{value.price}}&nbsp;{{value.currency}}</strong>
+        <div class="col-md-8">
+          <span class="col-md-4">{{value.description}}</span><br><strong class="col-md-4">{{value.price}}&nbsp;{{value.currency}}</strong>
+          <button ng-click="book(value)" class="btn btn-default" style="float:right"><span class="mega-octicon octicon-checklist"></span></button>
+        </div>
       </li>
     </ul>
   </div>

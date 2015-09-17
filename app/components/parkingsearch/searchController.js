@@ -20,7 +20,9 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
     $scope.markers = {};
 
     $scope.form = {
-      address: $stateParams.query
+        address: $stateParams.query,
+        start: $stateParams.start,
+        end: $stateParams.end
     };
 
     $scope.results = [];
@@ -153,6 +155,29 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
       setTimeout(function() {
         $scope.searchParking()
       }, 50);
+    };
+
+    $scope.book = function(parking) {
+        var booking = {
+            start: $scope.form.start,
+            end: $scope.form.end,
+            count: 1,
+            email: $scope.signedInAs,
+            parking: parking.uid
+        };
+        $http.post('/api/booking/create',
+            booking
+        )
+            .then(function (response) {
+                alert('Réservation enregistrée');
+            }, function (response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                switch (response.status) {
+                    default:
+                        alert("Une erreur est survenue, merci d'essayer à nouveau dans quelques instants");
+                }
+            });
     };
 
     // notify on some map events
