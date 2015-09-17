@@ -8,7 +8,9 @@ var app = angular.module(
       'ui.bootstrap',
       'parking.controllers',
       'nemLogging',
-      'leaflet-directive'
+      'leaflet-directive',
+      'angularMoment',
+      'datePicker'
     ]
 );
 
@@ -43,7 +45,7 @@ app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $
             .state(
               'search',
               {
-                url: '/search/:query',
+                url: '/search/:start/:end/:query',
                 templateUrl: '/app/components/parkingsearch/search.html',
                 controller: 'SearchCtrl'
               }

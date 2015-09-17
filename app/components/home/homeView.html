@@ -5,6 +5,15 @@
                 <label for="searchInput">Cherchez un emplacement : </label>
                 <input type="text" id="searchInput" class="form-control" ng-model="search.address"
                        placeholder="Aéroport Charles De Gaulle, Gare Lyon Part-Dieu, 75010, ...">
+
+                <div dropdown>
+                  <a class="btn btn-danger" class="dropdown-toggle" dropdown-toggle>
+                    {{(search.start|date)||"pick start"}} - {{(search.end|date)||"pick end"}}
+                  </a>
+                  <div class="dropdown-menu" dropdown-menu ng-click="$event.preventDefault();$event.stopPropagation()">
+                    <div date-range start="search.start" end="search.end"></div>
+                  </div>
+                </div>
             </div>
             <input type="submit" class="btn default-btn" value="Trouver" />
         </form>
