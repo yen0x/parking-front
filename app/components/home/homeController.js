@@ -1,10 +1,14 @@
 var app = angular.module('parking.controllers');
 
 app.controller('HomeCtrl', ['$scope', '$state', function ($scope, $state) {
+  $scope.datepicker = {
+    start: false,
+    end: false
+  }
   $scope.search = {
-      address: '',
-      start: '',
-      end: ''
+    address: '',
+    start: new Date(),
+    end: new Date() 
   };
 
   var formatDate = function(date) {
@@ -24,6 +28,10 @@ app.controller('HomeCtrl', ['$scope', '$state', function ($scope, $state) {
 
     return date.getFullYear() + '-' + month + '-' + day;
   }
+
+  $scope.openDatePicker = function(id, $event) {
+    $scope.datepicker[id] = !$scope.datepicker[id];
+  };
 
   $scope.onParkingSearchSubmit = function () {
       if ($scope.parkingSearchForm.$valid) {

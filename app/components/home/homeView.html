@@ -6,12 +6,23 @@
                 <input type="text" id="searchInput" class="form-control" ng-model="search.address"
                        placeholder="Aéroport Charles De Gaulle, Gare Lyon Part-Dieu, 75010, ...">
 
-                <div dropdown>
-                  <a class="btn btn-danger" class="dropdown-toggle" dropdown-toggle>
-                    {{(search.start|date)||"pick start"}} - {{(search.end|date)||"pick end"}}
-                  </a>
-                  <div class="dropdown-menu" dropdown-menu ng-click="$event.preventDefault();$event.stopPropagation()">
-                    <div date-range start="search.start" end="search.end"></div>
+                <label>Indiquez les dates de location souhaitées : </label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p class="input-group">
+                      <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="search.start" is-open="datepicker.start" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="openDatePicker('start', $event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                  </div>
+                  <div class="col-md-6">
+                    <p class="input-group">
+                      <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="search.end" is-open="datepicker.end" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="openDatePicker('end', $event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
                   </div>
                 </div>
             </div>

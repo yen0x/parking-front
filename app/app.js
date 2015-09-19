@@ -9,8 +9,7 @@ var app = angular.module(
       'parking.controllers',
       'nemLogging',
       'leaflet-directive',
-      'angularMoment',
-      'datePicker'
+//    '720kb.datepicker'
     ]
 );
 
