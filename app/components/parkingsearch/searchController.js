@@ -1,6 +1,6 @@
 var app = angular.module('parking.controllers');
 
-app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
+app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', 'Auth', function ($scope, $stateParams, $http, Auth) {
     // center on Paris on startup.
     $scope.center = {
         lat: 48.50,
@@ -162,7 +162,7 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', function ($scop
             start: $scope.form.start,
             end: $scope.form.end,
             count: 1,
-            email: $scope.signedInAs,
+            email: Auth.getUser(),
             parking: parking.uid
         };
         $http.post('/api/booking/create',

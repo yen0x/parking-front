@@ -2,7 +2,7 @@
 
 var app = angular.module('parking.controllers');
 
-app.controller('SigninController', ['$scope', '$state', '$http', '$rootScope', function ($scope, $state, $http, $rootScope) {
+app.controller('SigninController', ['$scope', '$state', '$http', '$rootScope', '$window', 'Auth', function ($scope, $state, $http, $rootScope, $window, Auth) {
   $scope.form = {};
   $scope.showErrors = {};
 
@@ -32,7 +32,7 @@ app.controller('SigninController', ['$scope', '$state', '$http', '$rootScope', f
           password: $scope.form.password
         })
         .then(function(response) {
-            $rootScope.signedInAs = $scope.form.email;
+            Auth.setUser($scope.form.email);
             $state.go('dashboard', {}, { location: true });
         }, function(response) {
           switch (response.status) {
