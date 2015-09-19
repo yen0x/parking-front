@@ -63,6 +63,5 @@ app.controller('SignupController', ['$scope', '$http', function ($scope, $http) 
               $scope.showErrors.general = 'Oops! System error, please try again.';
           }
         });
-    console.log($http);
   };
 }]);

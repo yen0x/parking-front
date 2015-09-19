@@ -92,7 +92,9 @@ app.controller('SearchCtrl', ['$scope', '$stateParams', '$http', 'Auth', functio
 
       var url = '/api/parking/search/area/' +
                 bounds.northEast.lat + ',' + bounds.northEast.lng + '/' +
-                bounds.southWest.lat + ',' + bounds.southWest.lng;
+                bounds.southWest.lat + ',' + bounds.southWest.lng + '/' +
+                $scope.form.start + '/' + $scope.form.end;
+
 
       $http.get(url)
           .then(function(response) {
