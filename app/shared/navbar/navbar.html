@@ -4,8 +4,10 @@
     </div>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#signin">Se connecter</a></li>
-            <li><a href="#signup">S'inscrire</a></li>
+            <li ng-if="!isConnected()"><a href="#signin">Se connecter</a></li>
+            <li ng-if="!isConnected()"><a href="#signup">S'inscrire</a></li>
+            <li ng-if="isConnected()"><a href="#dashboard">Dashboard</a></li>
+            <li ng-if="isConnected()"><a href="#logout">Logout</a></li>
         </ul>
     </div>
-</nav><!-- /.navbar -->
+</nav>

@@ -26,6 +26,7 @@
     <script type="text/javascript" src="app/components/addparking/addparkingController.js"></script>
     <script type="text/javascript" src="app/components/signup/signup.js"></script>
     <script type="text/javascript" src="app/components/signin/signin.js"></script>
+    <script type="text/javascript" src="app/shared/navbar/navbar.js"></script>
 
     <script type="text/javascript" src="app/shared/services/authService.js"></script>
 
@@ -35,7 +36,7 @@
     <link rel="stylesheet" href="/assets/css/octicons/octicons.css">
 </head>
 <body ng-app="parking" ng-strict-di>
-  <ng-include src="'./app/shared/navbar/navbar.html'"></ng-include>
+  <ng-include src="'./app/shared/navbar/navbar.html'" ng-controller="NavbarController"></ng-include>
   <div id="main">
       <div ui-view></div>
   </div>

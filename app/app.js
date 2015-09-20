@@ -10,7 +10,6 @@ var app = angular.module(
       'nemLogging',
       'leaflet-directive',
       'parking.services.auth'
-//    '720kb.datepicker'
     ]
 );
 

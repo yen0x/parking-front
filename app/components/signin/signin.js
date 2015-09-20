@@ -32,7 +32,8 @@ app.controller('SigninController', ['$scope', '$state', '$http', '$rootScope', '
           password: $scope.form.password
         })
         .then(function(response) {
-            Auth.setUser($scope.form.email);
+            Auth.setUser(response.data.email);
+            Auth.setFirstname(response.data.firstname);
             $state.go('dashboard', {}, { location: true });
         }, function(response) {
           switch (response.status) {
