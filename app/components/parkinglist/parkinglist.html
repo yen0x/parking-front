@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="/app/components/parkinglist/parkinglist.css">
+<div class="container" ng-controller="ParkingListController">
+  <div class="row">
+    <h1>Your parkings</h1>
+    <ul class="parking-entries list-unstyled">
+      <li ng-repeat="(key, value) in parkings" class="parking-entry">
+        <h3> {{value.address}}, {{value.city}}</h3>
+      </li>
+    </ul>
+  </div>
+</div>
+
