@@ -24,6 +24,6 @@ app.controller('ParkingListController', ['$scope', '$http', 'Auth', function ($s
           });
   };
 
-  $scope.listParkings();
+  //$scope.listParkings();
 }]);
 
