@@ -1,0 +1,11 @@
+<div class="container" ng-controller="BookingListCtrl">
+  <div class="row">
+    <!--TODO split from mes parkings -->
+    <h1>Mes réservations effectuées</h1>
+    <ul class="booking-entries list-unstyled">
+      <li ng-repeat="(key, value) in bookings" class="booking-entry">
+        <h3>{{value.count}} place(s) du {{value.start.substring(0,10)}} au {{value.end.substring(0,10)}} : {{value.address}}, {{value.city}}</h3>
+      </li>
+    </ul>
+  </div>
+</div>
