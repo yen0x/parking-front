@@ -4,7 +4,7 @@
     <h1>Mes réservations effectuées</h1>
     <ul class="booking-entries list-unstyled">
       <li ng-repeat="(key, value) in bookings" class="booking-entry">
-        <h3>{{value.count}} place(s) du {{value.start.substring(0,10)}} au {{value.end.substring(0,10)}} : {{value.address}}, {{value.city}}</h3>
+        <h3>{{value.count}} place(s) du {{value.start.substring(0,10)}} au {{value.end.substring(0,10)}} : {{value.address}}, {{value.city}}<button class="btn btn-default" ng-click="delete(value)"><span class="octicon octicon-trashcan"></span></button></h3>
       </li>
     </ul>
   </div>

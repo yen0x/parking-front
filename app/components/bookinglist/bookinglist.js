@@ -24,6 +24,29 @@ app.controller('BookingListCtrl', ['$scope', '$http', 'Auth', function ($scope, 
             });
     };
 
+    $scope.delete = function (booking) {
+        console.log(booking);
+        $http.delete("/api/booking/" + booking.uid + "/delete")
+            .then(function (response) {
+                if (response.status !== 200) {
+                    // TODO(jean): deal with something else than a 200.
+                    return;
+                }
+                if (response.data.length === 0) {
+                    // TODO(jean): deal with no results
+                    return;
+                }
+                index = $scope.bookings.indexOf(booking);
+                $scope.bookings.splice(index, 1);
+
+            },
+            function (response) {
+                // TODO(jean): deal with an error.
+                console.log('error:');
+                console.log(response);
+            });
+    };
+
     $scope.listBookings();
 }]);
 
