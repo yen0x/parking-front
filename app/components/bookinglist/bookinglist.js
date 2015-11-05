@@ -25,7 +25,6 @@ app.controller('BookingListCtrl', ['$scope', '$http', 'Auth', function ($scope, 
     };
 
     $scope.delete = function (booking) {
-        console.log(booking);
         $http.delete("/api/booking/" + booking.uid + "/delete")
             .then(function (response) {
                 if (response.status !== 200) {
