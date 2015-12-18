@@ -4,12 +4,13 @@
 var app = angular.module(
     'parking',
     [
-      'ui.router',
-      'ui.bootstrap',
-      'parking.controllers',
-      'nemLogging',
-      'leaflet-directive',
-      'parking.services.auth'
+        'ui.router',
+        'ui.bootstrap',
+        'ui.calendar',
+        'parking.controllers',
+        'nemLogging',
+        'leaflet-directive',
+        'parking.services.auth'
     ]
 );
 
@@ -26,51 +27,59 @@ app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $
         $urlRouterProvider.otherwise('/');
         $stateProvider
             .state(
-              'home',
-              {
+            'home',
+            {
                 url: '/',
                 templateUrl: '/app/components/home/homeView.html',
                 controller: 'HomeCtrl'
-              }
-            )
+            }
+        )
             .state(
-              'addparking',
-              {
+            'addparking',
+            {
                 url: '/addparking',
                 templateUrl: '/app/components/addparking/addparking.html',
                 controller: 'AddPrkgCtrl'
-              }
-            )
+            }
+        )
             .state(
-              'search',
-              {
+            'calendar',
+            {
+                url: '/calendar/:parking',
+                templateUrl: '/app/components/parkingcalendar/parkingcalendar.html',
+                controller: 'ParkingCalCtrl'
+            }
+        )
+            .state(
+            'search',
+            {
                 url: '/search/:start/:end/:query',
                 templateUrl: '/app/components/parkingsearch/search.html',
                 controller: 'SearchCtrl'
-              }
-            )
+            }
+        )
             .state(
-              'signup',
-              {
+            'signup',
+            {
                 url: '/signup',
                 templateUrl: '/app/components/signup/signup.html',
                 controller: 'SignupController'
-              }
-            )
+            }
+        )
             .state(
-              'signin',
-              {
+            'signin',
+            {
                 url: '/signin',
                 templateUrl: '/app/components/signin/signin.html',
                 controller: 'SigninController'
-              }
-            )
+            }
+        )
             .state(
-              'dashboard',
-              {
+            'dashboard',
+            {
                 url: '/dashboard',
                 templateUrl: '/app/components/dashboard/dashboard.html',
                 controller: 'DashboardController'
-              }
-            );
+            }
+        );
     }]);

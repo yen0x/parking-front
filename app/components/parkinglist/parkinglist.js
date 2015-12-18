@@ -6,7 +6,6 @@ app.controller('ParkingListController', ['$scope', '$http', 'Auth', function ($s
   $scope.listParkings = function() {
       $http.get('/api/parking/list')
           .then(function(response) {
-              console.log(response);
               if (response.status !== 200) {
                 // TODO(remy): deal with something else than a 200.
               }

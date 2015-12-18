@@ -3,7 +3,7 @@
     <h1>Mes parkings</h1>
     <ul class="parking-entries list-unstyled">
       <li ng-repeat="(key, value) in parkings" class="parking-entry">
-        <h3> {{value.address}}, {{value.city}}<button class="btn btn-default" ng-click="delete(value)"><span class="octicon octicon-trashcan"></span></button></h3>
+        <h3> {{value.address}}, {{value.city}}<button class="btn btn-default" ng-click="delete(value)"><span class="octicon octicon-trashcan"></span></button><a ui-sref="calendar({parking: value.uid})"><button class="btn btn-default"><span class="octicon octicon-calendar"></span></button></a></h3>
       </li>
     </ul>
   </div>
